@@ -1,0 +1,18 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import NewsList from "@/components/NewsList.astro";
+import Section from "@/components/Section.astro";
+import { news } from "@/data/news";
+import { profile } from "@/data/profile";
+---
+
+<BaseLayout title={`News | ${profile.name}`} description="Recent news and updates.">
+  <Section
+    title="News"
+    eyebrow="Updates"
+    description="Edit src/data/news.ts to add acceptances, awards, talks, lab updates, and releases."
+    className="pt-14"
+  >
+    <NewsList items={news} />
+  </Section>
+</BaseLayout>

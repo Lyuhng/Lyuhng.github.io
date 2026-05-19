@@ -1,0 +1,19 @@
+---
+import { GraduationCap } from "lucide-astro";
+import { profile } from "@/data/profile";
+import { withBase } from "@/utils/site";
+
+const year = new Date().getFullYear();
+---
+
+<footer class="mt-20 border-t border-line bg-white">
+  <div class="container-page flex flex-col gap-4 py-8 text-sm text-muted sm:flex-row sm:items-center sm:justify-between">
+    <p class="flex items-center gap-2">
+      <GraduationCap size={17} stroke-width={1.8} />
+      <span>© {year} {profile.name}. Built with Astro and Tailwind CSS.</span>
+    </p>
+    <a class="focus-ring rounded-lg px-2 py-1 text-accent-dark hover:bg-accent/10" href={withBase("/contact")}>
+      Contact
+    </a>
+  </div>
+</footer>

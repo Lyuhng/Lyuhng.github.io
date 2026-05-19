@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 420" role="img" aria-label="lipid metabolism illustration">
+  <rect width="720" height="420" fill="#f8fbf8"/>
+  <circle cx="220" cy="210" r="92" fill="#f4b860" opacity=".88"/>
+  <circle cx="356" cy="178" r="64" fill="#d9e894" opacity=".9"/>
+  <circle cx="470" cy="244" r="82" fill="#8cc8b8" opacity=".84"/>
+  <g fill="none" stroke="#202733" stroke-width="4" stroke-linecap="round" opacity=".68">
+    <path d="M168 130c110 90 236 90 370 0"/>
+    <path d="M176 294c120-66 240-66 360 0"/>
+  </g>
+  <g fill="#0f6f91">
+    <circle cx="184" cy="132" r="8"/>
+    <circle cx="322" cy="178" r="8"/>
+    <circle cx="538" cy="130" r="8"/>
+    <circle cx="176" cy="294" r="8"/>
+    <circle cx="358" cy="260" r="8"/>
+    <circle cx="536" cy="294" r="8"/>
+  </g>
+</svg>

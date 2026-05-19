@@ -1,0 +1,46 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import Hero from "@/components/Hero.astro";
+import NewsList from "@/components/NewsList.astro";
+import PublicationCard from "@/components/PublicationCard.astro";
+import ProjectCard from "@/components/ProjectCard.astro";
+import Section from "@/components/Section.astro";
+import { news } from "@/data/news";
+import { profile } from "@/data/profile";
+import { projects } from "@/data/projects";
+import { publications } from "@/data/publications";
+import { withBase } from "@/utils/site";
+
+const selectedPublications = publications.filter((publication) => publication.selected).slice(0, 5);
+const selectedProjects = projects.slice(0, 3);
+---
+
+<BaseLayout title={`${profile.name} | Academic Homepage`} description={profile.shortBio}>
+  <Hero />
+
+  <Section title="News" actionHref={withBase("/news")} actionLabel="View all">
+    <NewsList items={news} limit={5} />
+  </Section>
+
+  <Section
+    title="Selected Publications"
+    description="A curated set of recent and highly cited publications. The full list is grouped by year on the publications page."
+    actionHref={withBase("/publications")}
+    actionLabel="All publications"
+  >
+    <div class="grid gap-4">
+      {selectedPublications.map((publication) => <PublicationCard publication={publication} />)}
+    </div>
+  </Section>
+
+  <Section
+    title="Research"
+    description="Current research themes connect small RNA biology, skeletal muscle function, and metabolic traits in animal science."
+    actionHref={withBase("/research")}
+    actionLabel="Research page"
+  >
+    <div class="grid gap-5 md:grid-cols-3">
+      {selectedProjects.map((project) => <ProjectCard project={project} />)}
+    </div>
+  </Section>
+</BaseLayout>

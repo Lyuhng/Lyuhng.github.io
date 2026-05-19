@@ -1,0 +1,63 @@
+---
+import { ExternalLink, GraduationCap, Mail, MapPin } from "lucide-astro";
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import Section from "@/components/Section.astro";
+import { profile } from "@/data/profile";
+
+const contactLinks = [
+  profile.email ? { label: profile.email, href: `mailto:${profile.email}`, icon: Mail } : undefined,
+  { label: "Google Scholar", href: profile.scholar, icon: GraduationCap },
+  profile.github ? { label: "GitHub", href: profile.github, icon: ExternalLink } : undefined,
+  profile.orcid ? { label: "ORCID", href: profile.orcid, icon: ExternalLink } : undefined,
+  profile.linkedin ? { label: "LinkedIn", href: profile.linkedin, icon: ExternalLink } : undefined,
+  profile.x ? { label: "X", href: profile.x, icon: ExternalLink } : undefined
+].filter(Boolean);
+---
+
+<BaseLayout title={`Contact | ${profile.name}`} description={`Contact information for ${profile.name}.`}>
+  <Section
+    title="Contact"
+    eyebrow="Get in touch"
+    description="For academic correspondence, collaboration, and publication-related questions, use the email and profile links below."
+    className="pt-14"
+  >
+    <div class="grid gap-6 md:grid-cols-[1fr_1.1fr]">
+      <div class="rounded-lg border border-line bg-white p-6 shadow-soft">
+        <h2 class="text-xl font-semibold text-ink">{profile.name}</h2>
+        <p class="mt-2 text-muted">{profile.role}</p>
+        <div class="mt-5 space-y-3 text-sm text-muted">
+          <p class="flex gap-2">
+            <MapPin class="mt-0.5 shrink-0 text-accent" size={17} stroke-width={1.8} />
+            <span>{profile.address}</span>
+          </p>
+          {!profile.email && (
+            <p class="flex gap-2">
+              <Mail class="mt-0.5 shrink-0 text-accent" size={17} stroke-width={1.8} />
+              <span>{profile.emailNote}. Replace this with the public email you want displayed.</span>
+            </p>
+          )}
+        </div>
+      </div>
+
+      <div class="rounded-lg border border-line bg-white p-6 shadow-soft">
+        <h2 class="text-xl font-semibold text-ink">Links</h2>
+        <div class="mt-5 grid gap-3">
+          {
+            contactLinks.map((item) => {
+              const Icon = item.icon;
+              return (
+                <a class="focus-ring flex items-center justify-between rounded-lg border border-line px-4 py-3 text-sm font-semibold text-accent-dark transition hover:border-accent/40 hover:bg-accent/5" href={item.href} target={item.href.startsWith("http") ? "_blank" : undefined} rel={item.href.startsWith("http") ? "noreferrer" : undefined}>
+                  <span class="flex items-center gap-2">
+                    <Icon size={17} stroke-width={1.8} />
+                    {item.label}
+                  </span>
+                  <ExternalLink size={15} stroke-width={1.8} />
+                </a>
+              );
+            })
+          }
+        </div>
+      </div>
+    </div>
+  </Section>
+</BaseLayout>

@@ -1,0 +1,48 @@
+---
+import { profile } from "@/data/profile";
+import { withBase } from "@/utils/site";
+
+const navItems = [
+  { href: "/", label: "Home" },
+  { href: "/research", label: "Research" },
+  { href: "/publications", label: "Publications" },
+  { href: "/cv", label: "CV" },
+  { href: "/contact", label: "Contact" }
+];
+
+const pathname = Astro.url.pathname.replace(/\/$/, "") || "/";
+---
+
+<header class="sticky top-0 z-40 border-b border-line/80 bg-white/90 backdrop-blur">
+  <div class="container-page flex flex-col gap-3 py-4 sm:flex-row sm:items-center sm:justify-between">
+    <a class="focus-ring group inline-flex items-center gap-3 font-semibold" href={withBase("/")}>
+      <span class="grid h-9 w-9 place-items-center rounded-lg bg-accent text-sm font-bold text-white">
+        {profile.name.split(" ").map((part) => part[0]).join("")}
+      </span>
+      <span>
+        <span class="block leading-tight text-ink">{profile.name}</span>
+        <span class="block text-xs font-normal text-muted">{profile.affiliation}</span>
+      </span>
+    </a>
+    <nav class="flex flex-wrap items-center gap-x-1 gap-y-2 text-sm" aria-label="Primary navigation">
+      {
+        navItems.map((item) => {
+          const itemPath = item.href.replace(/\/$/, "") || "/";
+          const active = pathname === itemPath;
+          return (
+            <a
+              class:list={[
+                "focus-ring rounded-lg px-3 py-2 font-medium transition",
+                active ? "bg-accent/10 text-accent-dark" : "text-muted hover:bg-slate-100 hover:text-ink"
+              ]}
+              href={withBase(item.href)}
+              aria-current={active ? "page" : undefined}
+            >
+              {item.label}
+            </a>
+          );
+        })
+      }
+    </nav>
+  </div>
+</header>

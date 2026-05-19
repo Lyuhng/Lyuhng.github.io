@@ -1,0 +1,42 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import PublicationCard from "@/components/PublicationCard.astro";
+import Section from "@/components/Section.astro";
+import { profile } from "@/data/profile";
+import { publications } from "@/data/publications";
+
+const grouped = publications.reduce<Record<number, typeof publications>>((acc, publication) => {
+  acc[publication.year] ??= [];
+  acc[publication.year].push(publication);
+  return acc;
+}, {});
+
+const years = Object.keys(grouped)
+  .map(Number)
+  .sort((a, b) => b - a);
+---
+
+<BaseLayout title={`Publications | ${profile.name}`} description="Publications grouped by year.">
+  <Section
+    title="Publications"
+    eyebrow="Scholar record"
+    description="Publications are grouped by year in reverse chronological order. To add a new paper, edit only src/data/publications.ts."
+    className="pt-14"
+  >
+    <div class="space-y-10">
+      {
+        years.map((year) => (
+          <section aria-labelledby={`year-${year}`}>
+            <div class="mb-4 flex items-center gap-4">
+              <h2 id={`year-${year}`} class="text-2xl font-semibold text-ink">{year}</h2>
+              <div class="h-px flex-1 bg-line"></div>
+            </div>
+            <div class="grid gap-4">
+              {grouped[year].map((publication) => <PublicationCard publication={publication} />)}
+            </div>
+          </section>
+        ))
+      }
+    </div>
+  </Section>
+</BaseLayout>

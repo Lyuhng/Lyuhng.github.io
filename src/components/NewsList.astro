@@ -1,0 +1,33 @@
+---
+import { ExternalLink } from "lucide-astro";
+import type { NewsItem } from "@/data/news";
+
+type Props = {
+  items: NewsItem[];
+  limit?: number;
+};
+
+const { items, limit } = Astro.props;
+const visibleItems = typeof limit === "number" ? items.slice(0, limit) : items;
+---
+
+<ol class="divide-y divide-line overflow-hidden rounded-lg border border-line bg-white shadow-soft">
+  {
+    visibleItems.map((item) => (
+      <li class="grid gap-3 p-5 sm:grid-cols-[84px_1fr]">
+        <time class="text-sm font-semibold text-accent-dark">{item.date}</time>
+        <div>
+          {item.href ? (
+            <a class="focus-ring group inline-flex items-start gap-2 font-medium leading-6 text-ink hover:text-accent-dark" href={item.href} target="_blank" rel="noreferrer">
+              <span>{item.title}</span>
+              <ExternalLink class="mt-1 shrink-0 opacity-60 transition group-hover:opacity-100" size={15} stroke-width={1.8} />
+            </a>
+          ) : (
+            <p class="font-medium leading-6 text-ink">{item.title}</p>
+          )}
+          {item.description && <p class="mt-2 text-sm leading-6 text-muted">{item.description}</p>}
+        </div>
+      </li>
+    ))
+  }
+</ol>

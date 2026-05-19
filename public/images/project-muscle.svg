@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 420" role="img" aria-label="skeletal muscle regeneration illustration">
+  <rect width="720" height="420" fill="#fbfcfd"/>
+  <rect x="96" y="88" width="528" height="244" rx="8" fill="#f3e6df"/>
+  <g stroke="#b54f4f" stroke-width="18" stroke-linecap="round" opacity=".86">
+    <path d="M126 138c76 42 126 42 198 0s132-42 270 0"/>
+    <path d="M126 206c76 42 126 42 198 0s132-42 270 0"/>
+    <path d="M126 274c76 42 126 42 198 0s132-42 270 0"/>
+  </g>
+  <g fill="#0f6f91">
+    <circle cx="310" cy="128" r="13"/>
+    <circle cx="434" cy="210" r="13"/>
+    <circle cx="238" cy="280" r="13"/>
+  </g>
+  <path d="M560 80l34 34-34 34-34-34z" fill="#f4b860"/>
+</svg>

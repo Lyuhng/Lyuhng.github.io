@@ -1,0 +1,35 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import ProjectCard from "@/components/ProjectCard.astro";
+import Section from "@/components/Section.astro";
+import { profile } from "@/data/profile";
+import { projects } from "@/data/projects";
+---
+
+<BaseLayout title={`Research | ${profile.name}`} description="Research projects and themes.">
+  <Section
+    title="Research"
+    eyebrow="Projects"
+    description="The project cards are data-driven from src/data/projects.ts, so new research themes can be added without changing page templates."
+    className="pt-14"
+  >
+    <div class="grid gap-6 md:grid-cols-3">
+      {projects.map((project) => <ProjectCard project={project} />)}
+    </div>
+  </Section>
+
+  <Section title="Research Interests" className="pt-4">
+    <div class="grid gap-4 sm:grid-cols-2">
+      {
+        profile.interests.map((interest) => (
+          <div class="rounded-lg border border-line bg-white p-5 shadow-soft">
+            <h3 class="font-semibold text-ink">{interest}</h3>
+            <p class="mt-2 text-sm leading-6 text-muted">
+              Replace this short note with a project-specific description, datasets, collaborators, and representative outputs.
+            </p>
+          </div>
+        ))
+      }
+    </div>
+  </Section>
+</BaseLayout>

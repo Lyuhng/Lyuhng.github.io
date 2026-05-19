@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 420" role="img" aria-label="ncRNA regulatory network illustration">
+  <rect width="720" height="420" fill="#f7fafc"/>
+  <path d="M0 330c150-80 254-18 374-70s190-128 346-76v236H0z" fill="#dceff2"/>
+  <g fill="none" stroke="#0f6f91" stroke-width="5" stroke-linecap="round">
+    <path d="M128 106c56 0 56 78 112 78s56-78 112-78 56 78 112 78 56-78 112-78"/>
+    <path d="M128 180c56 0 56-78 112-78s56 78 112 78 56-78 112-78 56 78 112 78"/>
+  </g>
+  <g fill="#f4b860">
+    <circle cx="126" cy="106" r="12"/>
+    <circle cx="240" cy="184" r="12"/>
+    <circle cx="352" cy="106" r="12"/>
+    <circle cx="464" cy="184" r="12"/>
+    <circle cx="576" cy="106" r="12"/>
+  </g>
+  <g fill="#202733" opacity=".72">
+    <circle cx="214" cy="292" r="22"/>
+    <circle cx="304" cy="250" r="14"/>
+    <circle cx="410" cy="294" r="18"/>
+    <circle cx="508" cy="242" r="12"/>
+  </g>
+</svg>

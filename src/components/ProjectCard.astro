@@ -1,0 +1,50 @@
+---
+import { ExternalLink } from "lucide-astro";
+import type { Project } from "@/data/projects";
+import { withBase } from "@/utils/site";
+
+type Props = {
+  project: Project;
+};
+
+const { project } = Astro.props;
+---
+
+<article class="overflow-hidden rounded-lg border border-line bg-white shadow-soft">
+  <img src={withBase(project.image)} alt="" class="aspect-[16/9] w-full border-b border-line object-cover" loading="lazy" />
+  <div class="p-5">
+    <h3 class="text-lg font-semibold leading-7 text-ink">{project.title}</h3>
+    <p class="mt-3 text-sm leading-6 text-muted">{project.summary}</p>
+    <div class="mt-4 flex flex-wrap gap-2">
+      {
+        project.keywords.map((keyword) => (
+          <span class="rounded-md bg-slate-100 px-2.5 py-1 text-xs font-medium text-muted">{keyword}</span>
+        ))
+      }
+    </div>
+    {
+      project.links && (
+        <div class="mt-5 flex flex-wrap gap-2">
+          {project.links.paper && (
+            <a class="focus-ring inline-flex items-center gap-1.5 rounded-lg border border-line px-3 py-1.5 text-xs font-semibold text-accent-dark transition hover:border-accent/40 hover:bg-accent/5" href={project.links.paper} target="_blank" rel="noreferrer">
+              <ExternalLink size={14} stroke-width={1.8} />
+              Paper
+            </a>
+          )}
+          {project.links.code && (
+            <a class="focus-ring inline-flex items-center gap-1.5 rounded-lg border border-line px-3 py-1.5 text-xs font-semibold text-accent-dark transition hover:border-accent/40 hover:bg-accent/5" href={project.links.code} target="_blank" rel="noreferrer">
+              <ExternalLink size={14} stroke-width={1.8} />
+              Code
+            </a>
+          )}
+          {project.links.project && (
+            <a class="focus-ring inline-flex items-center gap-1.5 rounded-lg border border-line px-3 py-1.5 text-xs font-semibold text-accent-dark transition hover:border-accent/40 hover:bg-accent/5" href={project.links.project} target="_blank" rel="noreferrer">
+              <ExternalLink size={14} stroke-width={1.8} />
+              Project
+            </a>
+          )}
+        </div>
+      )
+    }
+  </div>
+</article>

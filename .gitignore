@@ -1,0 +1,9 @@
+node_modules
+dist
+.astro
+.npm-cache
+.codex-dev*.log
+screenshots
+.DS_Store
+*.log
+.env

@@ -1,0 +1,53 @@
+---
+import { Download, FileText } from "lucide-astro";
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import Section from "@/components/Section.astro";
+import { profile } from "@/data/profile";
+import { withBase } from "@/utils/site";
+---
+
+<BaseLayout title={`CV | ${profile.name}`} description={`Curriculum vitae for ${profile.name}.`}>
+  <Section
+    title="Curriculum Vitae"
+    eyebrow="CV"
+    description="This page combines a web CV with a downloadable PDF. Replace public/cv.pdf with the final CV when ready."
+    className="pt-14"
+  >
+    <div class="grid gap-8 lg:grid-cols-[1fr_320px]">
+      <div class="space-y-8">
+        {
+          profile.cvSections.map((section) => (
+            <section class="rounded-lg border border-line bg-white p-6 shadow-soft">
+              <h2 class="text-xl font-semibold text-ink">{section.title}</h2>
+              <div class="mt-5 space-y-5">
+                {section.items.map((item) => (
+                  <article class="border-l-2 border-accent/30 pl-4">
+                    <h3 class="font-semibold text-ink">{item.title}</h3>
+                    <p class="mt-1 text-sm font-medium text-accent-dark">{item.meta}</p>
+                    <p class="mt-2 text-sm leading-6 text-muted">{item.description}</p>
+                  </article>
+                ))}
+              </div>
+            </section>
+          ))
+        }
+      </div>
+      <aside class="rounded-lg border border-line bg-white p-6 shadow-soft lg:sticky lg:top-28 lg:self-start">
+        <FileText class="text-accent" size={28} stroke-width={1.8} />
+        <h2 class="mt-4 text-lg font-semibold text-ink">PDF CV</h2>
+        <p class="mt-2 text-sm leading-6 text-muted">
+          The current PDF is a placeholder generated for this website structure.
+        </p>
+        <a
+          class="focus-ring mt-5 inline-flex w-full items-center justify-center gap-2 rounded-lg bg-accent px-4 py-2.5 text-sm font-semibold text-white transition hover:bg-accent-dark"
+          href={withBase(profile.cv)}
+          target="_blank"
+          rel="noreferrer"
+        >
+          <Download size={17} stroke-width={1.8} />
+          Download CV
+        </a>
+      </aside>
+    </div>
+  </Section>
+</BaseLayout>
