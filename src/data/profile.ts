@@ -1,7 +1,7 @@
 export const profile = {
   name: "Yuhang Lei",
   nameNative: "雷宇航",
-  role: "PhD Candidate in animal science and molecular biology",
+  role: "PhD in animal science and molecular biology",
   affiliation: "Sichuan Agricultural University",
   location: "Chengdu, Sichuan, China",
   email: "leiyuhng@gmail.com",
@@ -24,7 +24,7 @@ export const profile = {
     source: "Google Scholar, retrieved May 19, 2026"
   },
   bio:
-    "Yuhang Lei is a PhD candidate studying non-coding RNAs, skeletal muscle regeneration and atrophy, and fat deposition in animal science contexts. His recent work spans tRNA-derived small RNAs, mitochondrial dynamics, lipid metabolism, and multi-omics datasets for understanding tissue development and metabolic traits.",
+    "Yuhang Lei studies non-coding RNAs, skeletal muscle regeneration and atrophy, and fat deposition in animal science contexts. His recent work spans tRNA-derived small RNAs, mitochondrial dynamics, lipid metabolism, and multi-omics datasets for understanding tissue development and metabolic traits.",
   shortBio:
     "Research at the intersection of ncRNAs, skeletal muscle biology, mitochondrial function, and lipid metabolism.",
   cvSections: [
@@ -33,7 +33,7 @@ export const profile = {
       items: [
         {
           title: "Sichuan Agricultural University",
-          meta: "PhD Candidate",
+          meta: "PhD",
           description: "Doctoral research in animal science and molecular biology. Add program, supervisor, and dates when ready."
         }
       ]
