@@ -7,7 +7,7 @@ export const profile = {
   email: "leiyuhng@gmail.com",
   emailNote: "Public email",
   address: "College of Animal Science and Technology, Sichuan Agricultural University",
-  avatar: "/images/avatar.jpg",
+  avatar: "/images/avatar.png",
   fallbackAvatar: "/images/avatar-placeholder.svg",
   cv: "/cv.pdf",
   scholar: "https://scholar.google.com/citations?user=zD7nHbYAAAAJ&hl=zh-CN&oi=ao",
